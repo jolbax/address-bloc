@@ -25,7 +25,8 @@ module.exports = class ContactController {
         name: "email",
         message: "Contact's email address - ",
         validate(val) {
-          return val !== "";
+          let re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+          return val !== "" && re.test(val) ? true:false;
         }
       }
     ];
